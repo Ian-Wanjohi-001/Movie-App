@@ -1,0 +1,51 @@
+.user-profile {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+  }
+  
+  .avatar-icon {
+    font-size: 48px;
+    color: #fff;
+  }
+  
+  .user-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .user-info p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .info-icon {
+    margin-right: 10px;
+  }
+  
+  .movie-recommendation {
+    margin-top: 20px;
+  }
+  
+  .movie-recommendation h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .movie-recommendation p {
+    font-weight: bold;
+    font-style: italic;
+  }
+  

@@ -16,3 +16,5 @@ const movieRoutes = (app) => {
 
 
 export default movieRoutes;
+
+// In film production, the "cast" refers to the actors who appear on screen and portray the characters, while the "crew" includes all the behind-the-scenes personnel involved in the technical and creative aspects of the production.

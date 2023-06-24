@@ -1,0 +1,43 @@
+.about-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .title {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .title-icon {
+    margin-right: 10px;
+  }
+  
+  .description {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .features-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .features-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .feature-icon {
+    margin-right: 10px;
+  }
+  

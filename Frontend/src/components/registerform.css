@@ -1,0 +1,50 @@
+.register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #b89292;
+  }
+  
+  .register-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .form-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .form-field svg {
+    margin-right: 10px;
+  }
+  
+  .form-field input,
+  .form-field select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 5px;
+  }
+  
+  .redirect-message {
+    margin-top: 20px;
+  }
+  
+  .redirect-message a {
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .redirect-message a:hover {
+    text-decoration: underline;
+  }
+  
