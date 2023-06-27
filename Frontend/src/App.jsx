@@ -8,6 +8,7 @@ import Register from './pages/Register';
 import Footer from './components/Appfooter';
 import TheatersPage from './pages/TheatersPage';
 import RateMoviePage from './pages/RateMoviePage';
+import SearchPage from './pages/SearchPage';
 import './App.css'
 
 function App() {
@@ -24,8 +25,9 @@ function App() {
         <Route path="/theaters" element={<TheatersPage/>} />
         <Route path="*" element={<NotFound/>} />
         <Route path="/rate-movie" element={<RateMoviePage/>} />
+        <Route path="/search" element={<SearchPage/>} />
      </Routes>
-      <Footer/> 
+     
     </div>
   )
 }

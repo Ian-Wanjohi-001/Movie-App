@@ -1,7 +1,8 @@
 
 
 import React from 'react';
-import { FaFilm, FaMapMarker, FaStar } from 'react-icons/fa';
+import { FaFilm, FaMapMarker, FaStar,FaHome } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import './Theaters.css';
 
 const Theaters = () => {
@@ -45,9 +46,18 @@ const Theaters = () => {
 
   return (
     <div className="theaters">
-      <h2 className="theaters-title">Theaters</h2>
-      <p className="theaters-subtitle">Explore the best theaters near you:</p>
-      <div className="theaters-grid">
+    <nav className="navbar">
+      <Link to="/" className="navbar-link">
+        <FaHome className="navbar-icon" />
+        Back To Home
+      </Link>
+      <Link to="/theaters" className="navbar-link active">
+        Explore The Theaters Near You
+      </Link>
+    </nav>
+    {/* <h2 className="theaters-title">Theaters</h2>
+    <p className="theaters-subtitle">Explore the best theaters near you:</p> */}
+    <div className="theaters-grid">
         {theaters.map(theater => (
           <div key={theater.id} className="theater-card">
             <h3 className="theater-name">{theater.name}</h3>

@@ -27,15 +27,15 @@
   }
   
   
-  .company-name {
+  .Footer-message {
     font-size: 24px;
     color: #333;
     text-decoration: none;
     margin-right: 20px;
-    white-space: nowrap; /* Prevent line breaks */
-    overflow: hidden; /* Hide overflowing content */
-    animation: marquee 10s linear infinite; /* Apply animation */
-  }
+    white-space: nowrap; 
+    overflow: hidden; 
+    animation: marquee 10s linear infinite; 
+  }  
   
   @keyframes marquee {
     0% {

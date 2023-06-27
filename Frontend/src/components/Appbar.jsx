@@ -1,19 +1,40 @@
-
+import { useContext, useState } from 'react';
+import { Context } from '../context/userContext/context';
 import { Link, NavLink } from 'react-router-dom';
-import { RiHome4Line, RiUserLine, RiLogoutBoxLine } from 'react-icons/ri';
-import { FaInfoCircle, FaSignInAlt, FaUserPlus } from 'react-icons/fa';
-import './AppBar.css'; 
+import { RiHome4Line, RiUserLine, RiLogoutBoxLine, RiSearchLine } from 'react-icons/ri';
+import { FaInfoCircle, FaSignInAlt, FaUserPlus , FaSearch} from 'react-icons/fa';
+import './AppBar.css';
+import RateMoviePage from '../pages/RateMoviePage';
 
 const AppBar = () => {
+  const { user, dispatch } = useContext(Context);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleLogout = () => {
+    dispatch({ type: 'LOGOUT' });
+  };
+
+  const handleSearch = () => {
+    // Implement the logic to fetch and search movies from your backend using the searchTerm
+    console.log('Searching for:', searchTerm);
+    // Clear the search input field
+    setSearchTerm('');
+  };
+
   return (
     <div className="app-bar">
-  <marquee behavior="scroll" direction="right" className="marquee-title">
-    <Link to="/" className="company-name">
-      Movies Recomendation App
-    </Link>
-  </marquee>
+      <div className="search-bar">
+      <Link to="/search" className="navbar-link">
+  <FaSearch className="navbar-icon" />
+</Link>
+      </div>
+      <marquee behavior="scroll" direction="right" className="marquee-title">
+        <Link to="/" className="company-name">
+          Movies Recommendation App
+        </Link>
+      </marquee>
       <nav className="nav-links">
-        <NavLink to="/" exact activeClassName="active" target='home'> 
+        <NavLink to="/" exact activeClassName="active" target="home">
           <RiHome4Line />
           Home
         </NavLink>
@@ -29,14 +50,22 @@ const AppBar = () => {
           <FaUserPlus />
           Register
         </NavLink>
-        <NavLink to="/profile" activeClassName="active">
-          <RiUserLine />
-          Profile
-        </NavLink>
-        <NavLink to="/logout" activeClassName="active">
-          <RiLogoutBoxLine />
-          Logout
-        </NavLink>
+        {user && (
+          <>
+            <NavLink to="/rate-movie" activeClassName="active">
+              <RiUserLine />
+              Rate Movie
+            </NavLink>
+            <NavLink to="/profile" activeClassName="active">
+              <RiUserLine />
+              Profile
+            </NavLink>
+            <NavLink onClick={handleLogout} activeClassName="active">
+              <RiLogoutBoxLine />
+              Logout
+            </NavLink>
+          </>
+        )}
       </nav>
     </div>
   );

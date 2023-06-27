@@ -1,4 +1,25 @@
 /* Theaters.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+
+.navbar-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.navbar-link.active {
+  color: #ff0000;
+}
+
+.navbar-icon {
+  margin-right: 5px;
+}
 
 .theaters {
     margin-top: 40px;
@@ -7,11 +28,22 @@
   .theaters-title {
     font-size: 24px;
     font-weight: bold;
+    margin-bottom: 8px;
   }
   
   .theaters-subtitle {
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
+    color: #666;;
+  }
+  .back-to-home {
+    display: block;
+    margin-bottom: 16px;
+    color: #666;
+    text-decoration: none;
+  }
+  .back-to-home:hover {
+    text-decoration: underline;
   }
   
   .theaters-list {
@@ -39,6 +71,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 20px;
+    padding-top: 10px;
   }
   
   .theater-card {

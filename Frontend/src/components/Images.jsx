@@ -1,21 +1,26 @@
 import Inception from '../assets/inception.jpg';
-import TheDarkKnight from '../assets/movie2.jpg';
-import PulpFiction from '../assets/movie3.jpg';
-import TheShawshankRedemption1 from '../assets/movie4.jpg';
-import FightClub from '../assets/movie5.jpg';
-import TheGodfather from '../assets/movie6.jpg';
-import TheMatrix from '../assets/movie7.jpg';
-import ForrestGump from '../assets/movie8.jpg';
-import Goodfellas from '../assets/movie9.jpg';
-import TheLordoftheRings from '../assets/movie10.jpg';
-import TheLionKing from '../assets/movie11.jpg';
-import Titanic from '../assets/movie12.jpg';
-import StarWars from '../assets/movie13.jpg';
-import TheAvengers from '../assets/movie14.jpg';
-import JurassicPark from '../assets/movie15.jpg';
-import TheGodfather1 from '../assets/movie6.jpg';
-import TheShawshankRedemption from '../assets/movie17.jpg';
-import SchindlersList from '../assets/movie18.jpg';
+import TheDarkKnight from '../assets/TheDarnKnight.jpg';
+import PulpFiction from '../assets/pulpfiction.jpg';
+import TheShawshankRedemption1 from '../assets/fightclub.jpg';
+import FightClub from '../assets/theshawshankredemption.jpg';
+import TheGodfather from '../assets/TheGodFather.jpg';
+import TheMatrix from '../assets/thematrix.jpg';
+import ForrestGump from '../assets/forestgump.jpg';
+import Goodfellas from '../assets/thegodfather(ii).jpg';
+import TheLordoftheRings from '../assets/thelordofrings.jpg';
+import TheLionKing from '../assets/lionking.jpg';
+import Titanic from '../assets/titanic.jpg';
+import StarWars from '../assets/starwars.jpg';
+import TheAvengers from '../assets/theavengers.jpg';
+import JurassicPark from '../assets/jurrasicpark.jpg';
+import TheGodfather1 from '../assets/thegodfather(ii).jpg';
+import TheShawshankRedemption from '../assets/shawshankredemption2.jpg';
+import SchindlersList from '../assets/shindlerslist.jpg';
+import Interstellar from '../assets/interstellar.jpg';
+import TheSocialNetwork from '../assets/thesocialnetwork.jpg';
+import Gladiator from '../assets/gladiator.jpg';
+import TheDeparted from '../assets/thedeparted.jpg';
+import InglouriosBasterds from '../assets/inglouriousbasterds.jpg';
 
 export  const movieImageNames = [
     Inception,
@@ -35,5 +40,27 @@ export  const movieImageNames = [
     JurassicPark,
     TheGodfather1,
     TheShawshankRedemption,
-    SchindlersList
+    SchindlersList,
+    TheDarkKnight,
+    PulpFiction,
+    FightClub,
+    ForrestGump,
+    TheMatrix,
+    Goodfellas,
+    TheLionKing,
+    TheLionKing,
+    Titanic,
+    StarWars,
+    TheAvengers,
+    JurassicPark,
+    Inception,
+    TheGodfather,
+    Interstellar,
+    TheSocialNetwork,
+    Gladiator,
+    TheDeparted,
+    InglouriosBasterds,
+    Inception,
+    TheDarkKnight,
+    PulpFiction,
 ];

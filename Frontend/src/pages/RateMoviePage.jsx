@@ -1,169 +1,63 @@
-// import React, { useState } from 'react';
-// import { useParams } from 'react-router-dom';
-
-// const RateMoviePage = () => {
-//   const { movieId } = useParams(); // Retrieve the movie ID from URL parameters
-//   const [rating, setRating] = useState(0);
-//   const [review, setReview] = useState('');
-//   const [recommendation, setRecommendation] = useState('');
-
-//   const handleRatingChange = (newRating) => {
-//     setRating(newRating);
-//   };
-
-//   const handleReviewChange = (event) => {
-//     setReview(event.target.value);
-//   };
-
-//   const handleRecommendationChange = (event) => {
-//     setRecommendation(event.target.value);
-//   };
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     // Example:
-//     const data = {
-//       movieId,
-//       rating,
-//       review,
-//       recommendation,
-//     };
-//     // Send the data to your backend API endpoint
-//     fetch('http://localhost:3000/submitRatingAndReview', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(data),
-//     })
-//       .then((response) => {
-//         if (response.ok) {
-//           // Handle successful submission (e.g., show a success message)
-//           console.log('Rating and review submitted successfully!');
-//         } else {
-//           // Handle error response (e.g., show an error message)
-//           console.log('Error submitting rating and review');
-//         }
-//       })
-//       .catch((error) => {
-//         // Handle error (e.g., show an error message)
-//         console.log('Error submitting rating and review', error);
-//       });
-//   };
-
-//   return (
-//     <div className="rate-movie-page">
-//       <h2>Rate and Review Movie</h2>
-//       <div className="movie-details">
-//         {/* Display movie details here */}
-//       </div>
-//       <form onSubmit={handleSubmit} className="rating-form">
-//         <div>
-//           <label>Rating:</label>
-//           <div className="star-rating">
-//             {/* Star rating inputs */}
-//           </div>
-//         </div>
-//         <div>
-//           <label>Review:</label>
-//           <textarea
-//             value={review}
-//             onChange={handleReviewChange}
-//             placeholder="Write your review here"
-//             className="review-input"
-//           ></textarea>
-//         </div>
-//         <div>
-//           <label>Recommendation:</label>
-//           <input
-//             type="text"
-//             value={recommendation}
-//             onChange={handleRecommendationChange}
-//             placeholder="Enter your recommendation"
-//             className="recommendation-input"
-//           />
-//         </div>
-//         <button type="submit" className="submit-button">Submit</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default RateMoviePage;
-
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import { FaStar } from 'react-icons/fa';
+import axios from 'axios';
+import './RateMoviePage.css';
 
 const RateMoviePage = () => {
-  const { movieId } = useParams(); // Retrieve the movie ID from URL parameters
   const [rating, setRating] = useState(0);
-  const [review, setReview] = useState('');
   const [recommendation, setRecommendation] = useState('');
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    fetchMovies();
+  }, []);
+
+  const fetchMovies = async () => {
+    try {
+      const response = await axios.get('/api/movies');
+      setMovies(response.data);
+    } catch (error) {
+      console.error('Error occurred while fetching movies:', error);
+    }
+  };
 
   const handleRatingChange = (newRating) => {
     setRating(newRating);
-  };
-
-  const handleReviewChange = (event) => {
-    setReview(event.target.value);
   };
 
   const handleRecommendationChange = (event) => {
     setRecommendation(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Example:
-    const data = {
-      movieId,
-      rating,
-      review,
-      recommendation,
-    };
-    // Send the data to your backend API endpoint
-    fetch('http://localhost:3000/submitRatingAndReview', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => {
-        if (response.ok) {
-          // Handle successful submission (e.g., show a success message)
-          console.log('Rating and review submitted successfully!');
-        } else {
-          // Handle error response (e.g., show an error message)
-          console.log('Error submitting rating and review');
-        }
-      })
-      .catch((error) => {
-        // Handle error (e.g., show an error message)
-        console.log('Error submitting rating and review', error);
-      });
-  };
 
-  // Dummy movie details
-  const movieDetails = {
-    title: 'Example Movie',
-    genre: 'Action',
-    director: 'John Doe',
-    releaseYear: 2021,
-    // Add more details as needed
+    const reviewData = {
+      rating: rating,
+      recommendation: recommendation,
+    };
+
+    try {
+      const response = await axios.post('/api/reviews', reviewData);
+      if (response.status === 200) {
+        alert('Your review has been successfully received.');
+        setRating(0);
+        setRecommendation('');
+      } else {
+        alert('An error occurred while submitting your review. Please try again later.');
+      }
+    } catch (error) {
+      alert('An error occurred while submitting your review. Please try again later.');
+      console.error(error);
+    }
   };
 
   return (
-    <div className="rate-movie-page">
-      <h2>Rate and Review Movie</h2>
-      <div className="movie-details">
-        <h3>{movieDetails.title}</h3>
-        <p>Genre: {movieDetails.genre}</p>
-        <p>Director: {movieDetails.director}</p>
-        <p>Release Year: {movieDetails.releaseYear}</p>
-        {/* Add more movie details */}
-      </div>
+    <div className="rating-page">
+      <nav className="navbar">
+        <h1 className="navbar-title">Rate and Recommend Movie</h1>
+        <a href="/" className="navbar-link">Back to Home</a>
+      </nav>
       <form onSubmit={handleSubmit} className="rating-form">
         <div>
           <label>Rating:</label>
@@ -183,15 +77,6 @@ const RateMoviePage = () => {
           </div>
         </div>
         <div>
-          <label>Review:</label>
-          <textarea
-            value={review}
-            onChange={handleReviewChange}
-            placeholder="Write your review here"
-            className="review-input"
-          ></textarea>
-        </div>
-        <div>
           <label>Recommendation:</label>
           <input
             type="text"
@@ -201,6 +86,14 @@ const RateMoviePage = () => {
             className="recommendation-input"
           />
         </div>
+        <div>
+          <label>Select a Movie:</label>
+          <select className="movie-select">
+            {movies.map((movie) => (
+              <option key={movie.movie_id} value={movie.movie_id}>{movie.title}</option>
+            ))}
+          </select>
+        </div>
         <button type="submit" className="submit-button">Submit</button>
       </form>
     </div>
@@ -208,4 +101,3 @@ const RateMoviePage = () => {
 };
 
 export default RateMoviePage;
-

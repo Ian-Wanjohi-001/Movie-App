@@ -43,8 +43,8 @@ export const getMoviesByCrew = async (req, res) => {
   
       res.status(200).json(result.recordset);
     } catch (error) {
-      res.status(500).json({ message: "An error occurred while fetching movies by crew." });
-      console.error("An error occurred while fetching movies by crew:", error);
+      res.status(500).json({ message: "An error occurred while fetching movies by title." });
+      console.error("An error occurred while fetching movies by title:", error);
     } finally {
       sql.close();
     }

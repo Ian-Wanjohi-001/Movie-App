@@ -104,7 +104,7 @@ CREATE TABLE Reviews (
   movie_id INT,
   user_id INT,
   review_content TEXT,
-  rating DECIMAL(3,2),
+  rating  INT,
   FOREIGN KEY (movie_id) REFERENCES Movies(movie_id),
   FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
@@ -120,7 +120,7 @@ CREATE TABLE Ratings (
   rating_id INT PRIMARY KEY IDENTITY(1,1),
   movie_id INT,
   user_id INT,
-  rating_value DECIMAL(3,2),
+  rating_value INT,
   FOREIGN KEY (movie_id) REFERENCES Movies(movie_id),
   FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );

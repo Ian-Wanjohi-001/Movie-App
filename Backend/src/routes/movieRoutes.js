@@ -12,6 +12,8 @@ const movieRoutes = (app) => {
     .get(getMoviesGenresAvailable)
     app.route('/movies/genres/action')
     .get(getMoviesGenreIsAction)
+    
+
 }
 
 

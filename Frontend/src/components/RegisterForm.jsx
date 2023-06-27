@@ -4,6 +4,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { RiUserFill, RiMailFill, RiLockPasswordFill } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
 
 const RegisterForm = () => {
   const validationSchema = Yup.object().shape({
@@ -28,6 +30,14 @@ const RegisterForm = () => {
 
   const onSubmit = (data) => {
     console.log(data); 
+    axios.post("http://localhost:3000/auth/register", data)
+    .then((response) => {
+      response.data.message && alert(response.data.message)
+      console.log(response)
+    })
+    .catch ((error) => {
+      alert(error.response.data.error);
+    })
   };
 
   return (

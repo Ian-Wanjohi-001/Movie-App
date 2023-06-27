@@ -1,10 +1,17 @@
+import { useContext } from 'react';
+import { Context } from '../context/userContext/context';
 import AppBar from '../components/Appbar';
 import './profiledata.css';
 import { RiUserFill, RiMailFill } from 'react-icons/ri';
 
 
 
-const ProfileData = ({ user }) => {
+const ProfileData = () => {
+
+const {user} = useContext(Context);
+
+
+  
   return (
     <>
 
@@ -13,14 +20,14 @@ const ProfileData = ({ user }) => {
         <RiUserFill className="avatar-icon" />
       </div>
       <div className="user-info">
-        <h2>{user.userName}</h2>
+        <h2>{user.username}</h2>
         <p>
           <RiMailFill className="info-icon" />
           {user.email}
         </p>
-        <p>Movie Preferences: {user.moviePreferences.join(', ')}</p>
+        <p>Movie Preferences: {user.preferences}</p>
         <h3>Movie Recommendation:</h3>
-        <p>{user.movieRecommendation}</p>
+        <p></p>
       </div>
     </div>
     </>

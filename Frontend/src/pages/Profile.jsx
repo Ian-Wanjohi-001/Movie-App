@@ -1,11 +1,11 @@
 import AppBar from "../components/Appbar";
-import UserData from "../components/UserData";
+import ProfileData from "../components/ProfileData";
 
 const Profile = () => {
   return (
     <div>
       <AppBar />
-      <UserData />
+     <ProfileData />
     </div>
   )
 }
