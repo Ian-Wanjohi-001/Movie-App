@@ -1,18 +1,24 @@
-// import express from 'express';
-// import { submitReview } from '../controllers/reviewsController.js';
 
-// const router = express.Router();
-
-// router.post('/reviews', submitReview);
-
-// export default router;
+import { createReview ,getReviews, deleteReview, updateReviewContent} from "../controllers/reviewsController.js";
 
 
-import express from 'express';
-import { getMovies } from '../controllers/RateMovieController.js';
+const reviewsRoute = (app) => {
+    // create review
+    app.route('/review')
+    .post(createReview)
 
-const router = express.Router();
+    //fetch all reviews by a specific user
+    app.route('/user/reviews/:user_id')
+.get(getReviews)
 
-router.get('/movies', getMovies);
+app.route('/user/reviews/delete/:reviewId')
+.delete(deleteReview);
 
-export default router;
+app.route('/user/reviews/update/:reviewId')
+.post(updateReviewContent)
+
+}
+
+
+
+export default reviewsRoute;

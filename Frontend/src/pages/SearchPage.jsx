@@ -1,8 +1,10 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Axios from 'axios';
 import './SearchPage.css';
 import { Link } from 'react-router-dom';
+
+// import Home from './Home';
 
 const SearchPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -28,16 +30,10 @@ const SearchPage = () => {
       console.error('Error occurred while searching movies:', error);
     }
   };
-
-  const truncateText = (text, limit) => {
-    const words = text.split(' ');
-    if (words.length > limit) {
-      return words.slice(0, limit).join(' ') + '...';
-    }
-    return text;
-  };
-
-  return (
+  return (<>
+   <div>
+      
+    </div>
     <div className="search-page">
       <form className="search-form" onSubmit={handleSearchSubmit}>
         <input
@@ -58,10 +54,11 @@ const SearchPage = () => {
         {searchResults.map((movie) => (
           <div key={movie.movie_id} className="search-card">
             <div className="search-card-content">
-              <h2 className="search-movie-title">{truncateText(movie.title, 2)}</h2>
+              <h2 className="search-movie-title">{movie.title}</h2>
               <div className="search-details">
-                <p className="search-synopsis">{truncateText(movie.synopsis, 20)}</p>
-                <p className="search-cast">Cast: {truncateText (movie.cast, 2)}</p>
+                <p>Movie ID : {movie.movie_id}</p>
+                <p className="search-synopsis">{movie.synopsis}</p>
+                <p className="search-cast">Cast: {movie.cast}</p>
                 <p className="search-crew">Crew: {movie.crew}</p>
                 <p className="search-release-date">Release Date: {new Date(movie.release_date).toLocaleDateString()}</p>
                 <p className="search-runtime">Runtime: {movie.runtime} Minutes</p>
@@ -73,7 +70,9 @@ const SearchPage = () => {
           </div>
         ))}
       </div>
+      {/* <Home /> */}
     </div>
+    </>
   );
 };
 

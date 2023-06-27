@@ -5,6 +5,9 @@ import * as Yup from 'yup';
 import { RiUserFill, RiMailFill, RiLockPasswordFill } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import {toast, ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const RegisterForm = () => {
@@ -32,15 +35,15 @@ const RegisterForm = () => {
     console.log(data); 
     axios.post("http://localhost:3000/auth/register", data)
     .then((response) => {
-      response.data.message && alert(response.data.message)
+      response.data.message && toast.success(response.data.message)
       console.log(response)
     })
     .catch ((error) => {
-      alert(error.response.data.error);
+      toast.error(error.response.data.error);
     })
   };
 
-  return (
+  return (<>
     <div className="register-form">
       <h2>Register</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -85,6 +88,8 @@ const RegisterForm = () => {
         Already have an account? <Link to="/login">Login</Link>
       </p>
     </div>
+    <ToastContainer />
+    </>
   );
 };
 

@@ -49,9 +49,6 @@ const Home = () => {
     }
     return text;
   };
-
-
-
   return (
     <div>
       <AppBar />

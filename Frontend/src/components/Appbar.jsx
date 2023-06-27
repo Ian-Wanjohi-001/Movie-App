@@ -5,10 +5,18 @@ import { RiHome4Line, RiUserLine, RiLogoutBoxLine, RiSearchLine } from 'react-ic
 import { FaInfoCircle, FaSignInAlt, FaUserPlus , FaSearch} from 'react-icons/fa';
 import './AppBar.css';
 import RateMoviePage from '../pages/RateMoviePage';
+import SearchPage from '../pages/SearchPage';
+
+
 
 const AppBar = () => {
   const { user, dispatch } = useContext(Context);
   const [searchTerm, setSearchTerm] = useState('');
+  const [showSearchPage, setShowSearchPage] = useState(false)
+
+  const handleShowSearchPage = () => {
+    setShowSearchPage(!showSearchPage)
+  }
 
   const handleLogout = () => {
     dispatch({ type: 'LOGOUT' });
@@ -22,11 +30,12 @@ const AppBar = () => {
   };
 
   return (
-    <div className="app-bar">
+    <>
+    <div className="app-bar"> 
       <div className="search-bar">
-      <Link to="/search" className="navbar-link">
-  <FaSearch className="navbar-icon" />
-</Link>
+      <button onClick={handleShowSearchPage}>
+  {showSearchPage ? 'Hide Search' : 'Show Search'}
+</button>
       </div>
       <marquee behavior="scroll" direction="right" className="marquee-title">
         <Link to="/" className="company-name">
@@ -68,6 +77,8 @@ const AppBar = () => {
         )}
       </nav>
     </div>
+   {showSearchPage && <SearchPage/>} 
+    </>
   );
 };
 

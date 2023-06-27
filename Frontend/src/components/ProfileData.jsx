@@ -21,6 +21,7 @@ const {user} = useContext(Context);
       </div>
       <div className="user-info">
         <h2>{user.username}</h2>
+        <h4>User ID: {user.userid}</h4>
         <p>
           <RiMailFill className="info-icon" />
           {user.email}

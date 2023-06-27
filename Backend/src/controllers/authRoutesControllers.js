@@ -69,7 +69,7 @@ import sql from "mssql";
      const token = jwt.sign({ email: user.email }, "your-secret-key"); 
       
      // Return the token as a response 
-     res.status(200).json({username: user.username, email: user.email,preferences: user.preferences, token: token }); 
+     res.status(200).json({username: user.username, userid: user.user_id, email: user.email,preferences: user.preferences, token: token }); 
    } catch (error) { 
      res.status(500).json({ error: "An error occurred while logging in", error }); 
      console.log(error)

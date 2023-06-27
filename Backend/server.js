@@ -1,10 +1,10 @@
 import  cors  from "cors";
 import  express  from "express";
-import config from "./src/database/config.js";
+import config from "./src/DataBase/config.js";
 import movieRoutes from "./src/routes/movieRoutes.js";
 import authRoutes from "./src/routes/authRoutes.js";
 import bodyParser from "body-parser";
-// import reviewRoute from './src/routes/reviewRoute.js';
+import reviewsRoute from "./src/routes/reviewRoutes.js";
 
 
 const app = express ();
@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 // my routes
 movieRoutes (app);
 authRoutes(app);
-// reviewRoute(app);
+reviewsRoute(app);
 
 
 app.get ('/' , ( req , res ) => {
