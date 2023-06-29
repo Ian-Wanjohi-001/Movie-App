@@ -1,6 +1,7 @@
+
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../context/userContext/context";
-import './yourreviewspage.css';
+import "./yourreviewspage.css";
 
 function YourReviewsPage() {
   const { user } = useContext(Context);
@@ -70,8 +71,8 @@ function YourReviewsPage() {
   };
 
   return (
-    <div>
-      <h1>Your Reviews</h1>
+    <div className="your-reviews-container">
+      <h1 className="your-reviews-heading">Your Reviews</h1>
       <div className="table-container">
         <table className="table">
           <thead>
@@ -89,8 +90,12 @@ function YourReviewsPage() {
                 <td>{review.review_content}</td>
                 <td>{review.rating}</td>
                 <td>
-                  <button className="button" onClick={() => handleUpdate(review.review_id)}>Update</button>
-                  <button className="button" onClick={() => handleDelete(review.review_id)}>Delete</button>
+                  <button className="update-button" onClick={() => handleUpdate(review.review_id)}>
+                    Update
+                  </button>
+                  <button className="delete-button" onClick={() => handleDelete(review.review_id)}>
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}

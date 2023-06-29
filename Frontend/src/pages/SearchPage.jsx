@@ -4,7 +4,6 @@ import Axios from 'axios';
 import './SearchPage.css';
 import { Link } from 'react-router-dom';
 
-// import Home from './Home';
 
 const SearchPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -21,31 +20,33 @@ const SearchPage = () => {
     try {
       const response = await Axios.get('http://localhost:3000/movies/title/' + searchQuery);
       if (response.data.length === 0) {
-        setMovieNotFound(true);
+        toast.info('Movie Not Found');
       } else {
         setSearchResults(response.data);
-        setMovieNotFound(false);
       }
     } catch (error) {
       console.error('Error occurred while searching movies:', error);
     }
   };
   return (<>
-   <div>
-      
+    <div>
+
     </div>
     <div className="search-page">
       <form className="search-form" onSubmit={handleSearchSubmit}>
-        <input
-          className="search-input"
-          type="text"
-          value={searchQuery}
-          onChange={handleSearchInputChange}
-          placeholder="Enter movie title"
-        />
-        <button className="search-button" type="submit">
-          Search
-        </button>
+        <div className="search-container">
+          <input
+            className="search-input"
+            type="text"
+            value={searchQuery}
+            onChange={handleSearchInputChange}
+            placeholder="Enter movie title"
+          />
+          <button className="search-button" type="submit">
+            Search
+          </button>
+        </div>
+
       </form>
 
       {movieNotFound && <p className="no-results-message">Movie Not Found</p>}
@@ -70,9 +71,8 @@ const SearchPage = () => {
           </div>
         ))}
       </div>
-      {/* <Home /> */}
     </div>
-    </>
+  </>
   );
 };
 

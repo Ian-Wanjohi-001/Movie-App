@@ -77,6 +77,7 @@ const Home = () => {
               <p className="release-date">{new Date(movie.release_date).toLocaleDateString()}</p>
             </div>
             <div className="movie-details">
+            {/* <p className="movie_id">id :{movie.movie_id}</p> */}
               <p className="cast">Cast: {truncateText(movie.cast, 2)}</p>
               <p className="crew">Crew: {movie.crew}</p>
               <p className="runtime">Runtime: {movie.runtime} Minutes</p>

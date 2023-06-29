@@ -72,63 +72,100 @@ rating: data.rating
   return (
     <>
       <AppBar />
-      <form className="review-form" onSubmit={handleSubmit(onSubmit)} style={{height:'40vh'}}>
-        <div className="form-field">
-          <label className="field-label">
-            <FaFilm className="field-icon" />
-          </label>
-          <input type="text" id="movie_id" placeholder="Movie ID" {...register('movie_id')} className="text-input" />
-          {errors.movie_id && <p className="error-message">{errors.movie_id.message}</p>}
-        </div>
+      <form className="login-form review-form" onSubmit={handleSubmit(onSubmit)}>
+  <div className="form-field">
+    <label className="field-label">
+      <FaFilm className="field-icon" />
+    </label>
+    <input
+      type="text"
+      id="movie_id"
+      placeholder="Movie ID"
+      {...register('movie_id')}
+      className="text-input"
+    />
+    {errors.movie_id && <p className="error-message">{errors.movie_id.message}</p>}
+  </div>
 
-        <div className="wrap">
-          <div className="form-field user-id">
-            <label className="field-label">
-              <FaUser className="field-icon" />
-            </label>
-            <input type="text" id="user_id" placeholder="User ID" disabled {...register('user_id')} className="text-input" />
-            {errors.user_id && <p className="error-message">{errors.user_id.message}</p>}
-          </div>
+  <div className="wrap">
+    <div className="form-field user-id">
+      <label className="field-label">
+        <FaUser className="field-icon" />
+      </label>
+      <input
+        type="text"
+        id="user_id"
+        placeholder="User ID"
+        disabled
+        {...register('user_id')}
+        className="text-input"
+      />
+      {errors.user_id && <p className="error-message">{errors.user_id.message}</p>}
+    </div>
 
-          <div className="form-field user-name">
-            <label className="field-label">
-              <FaUser className="field-icon" />
-            </label>
-            <input type="text" id="user_name" placeholder="User Name" {...register('user_name')} className="text-input" />
-            {errors.user_name && <p className="error-message">{errors.user_name.message}</p>}
-          </div>
-        </div>
+    <div className="form-field user-name">
+      <label className="field-label">
+        <FaUser className="field-icon" />
+      </label>
+      <input
+        type="text"
+        id="user_name"
+        placeholder="User Name"
+        {...register('user_name')}
+        className="text-input"
+      />
+      {errors.user_name && <p className="error-message">{errors.user_name.message}</p>}
+    </div>
+  </div>
 
-        <div className="wrap">
-          <div className="form-field email">
-            <label className="field-label">
-              <FaEnvelope className="field-icon" />
-            </label>
-            <input type="email" id="email" placeholder="Email" {...register('email')} className="text-input" />
-            {errors.email && <p className="error-message">{errors.email.message}</p>}
-          </div>
+  <div className="wrap">
+    <div className="form-field email">
+      <label className="field-label">
+        <FaEnvelope className="field-icon" />
+      </label>
+      <input
+        type="email"
+        id="email"
+        placeholder="Email"
+        {...register('email')}
+        className="text-input"
+      />
+      {errors.email && <p className="error-message">{errors.email.message}</p>}
+    </div>
 
-          <div className="form-field rating">
-            <label className="field-label">
-              <FaStar className="field-icon" />
-            </label>
-            <input type="number" id="rating" placeholder="Rating" {...register('rating')} className="number-input" />
-            {errors.rating && <p className="error-message">{errors.rating.message}</p>}
-          </div>
-        </div>
+    <div className="form-field rating">
+      <label className="field-label">
+        <FaStar className="field-icon" />
+      </label>
+      <input
+        type="number"
+        id="rating"
+        placeholder="Rating"
+        {...register('rating')}
+        className="number-input"
+      />
+      {errors.rating && <p className="error-message">{errors.rating.message}</p>}
+    </div>
+  </div>
 
-        <div className="form-field">
-          <label className="field-label">
-            <FaComment className="field-icon" />
-          </label>
-          <textarea id="review_content" placeholder="Review Content" {...register('review_content')} className="text-area" />
-          {errors.review_content && <p className="error-message">{errors.review_content.message}</p>}
-        </div>
-
-        <button type="submit" className="submit-button">Submit</button>
-      </form>
-      <ToastContainer />
-      <button > <Link to='/yourReviewsPage'>View Your Reviews</Link></button>
+  <div className="form-field">
+    <label className="field-label">
+      <FaComment className="field-icon" />
+    </label>
+    <textarea
+      id="review_content"
+      placeholder="Review Content"
+      {...register('review_content')}
+      className="text-area"
+    />
+    {errors.review_content && <p className="error-message">{errors.review_content.message}</p>}
+  </div>
+  <button type="submit" className="submit-button">Submit</button>
+</form>
+<ToastContainer />
+<button className="view-reviews-button">
+  <Link to="/yourReviewsPage">View Your Reviews</Link>
+</button>
     </>
   );
 };

@@ -20,10 +20,6 @@ const Footer = ({message}) => {
   <RiHome4Line />
   Back to Home
 </NavLink>
-          {/* <NavLink to="/movies" activeClassName="active">
-            <FaFilm />
-            Movies
-          </NavLink> */}
           <NavLink to="/theaters" activeClassName="active">
             <FaTheaterMasks />
             Theaters
@@ -36,7 +32,7 @@ const Footer = ({message}) => {
             <RiUserLine />
             Register
           </NavLink>
-          <NavLink to="/logout" activeClassName="active">
+          <NavLink to="/login" activeClassName="active">
             <RiLogoutBoxLine />
             Logout
           </NavLink>

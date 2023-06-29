@@ -70,14 +70,14 @@ const RegisterForm = () => {
           )}
         </div>
         <div className="form-field">
-          <label htmlFor="moviePreference">Movie Preference:</label>
-          <select {...register('moviePreference')} id="moviePreference">
+          {/* <label htmlFor="moviePreference">Movie Preference:</label> */}
+          {/* <select {...register('moviePreference')} id="moviePreference">
             <option value="">Select</option>
             <option value="action">Action</option>
             <option value="thriller">Thriller</option>
             <option value="drama">Drama</option>
             <option value="comedy">Comedy</option>
-          </select>
+          </select> */}
           {errors.moviePreference && (
             <p className="error-message">{errors.moviePreference.message}</p>
           )}

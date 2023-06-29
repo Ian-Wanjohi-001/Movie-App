@@ -37,7 +37,7 @@ const AppBar = () => {
   {showSearchPage ? 'Hide Search' : 'Show Search'}
 </button>
       </div>
-      <marquee behavior="scroll" direction="right" className="marquee-title">
+      <marquee behavior="scroll" direction="" className="marquee-title">
         <Link to="/" className="company-name">
           Movies Recommendation App
         </Link>
